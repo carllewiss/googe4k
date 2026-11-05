@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793519564642,
+      "tag": "0000_cleanup_wifi_backfill_step1",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793592938971,
+      "tag": "0001_cleanup_wifi_backfill_job",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793593006745,
+      "tag": "0002_backup_system",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793763427715,
+      "tag": "0003_restore_truncate_rpc",
+      "breakpoints": true
+    }
+  ]
+}

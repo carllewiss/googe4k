@@ -1,0 +1,31 @@
+project_id = "jeujndewidagwrmmanxr"
+
+[functions.shop-checkout-stk]
+verify_jwt = false
+
+[functions.shop-mpesa-callback]
+verify_jwt = false
+
+[functions.invoice-stk-push]
+verify_jwt = false
+
+[functions.invoice-mpesa-callback]
+verify_jwt = false
+
+[functions.admin-create-user]
+verify_jwt = true
+
+[functions.admin-reset-password]
+verify_jwt = true
+
+[functions.db-backup]
+verify_jwt = true
+
+[functions.db-restore]
+verify_jwt = true
+
+[functions.sync-wifi-payments]
+verify_jwt = false
+
+[functions.wifi-vouchers]
+verify_jwt = false

@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.period_status_for(date), public.next_correction_no() FROM anon, public, authenticated;

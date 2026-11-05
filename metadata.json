@@ -1,0 +1,6 @@
+{
+  "name": "ApexERP - Supabase Cloud Enterprise Resource Planning",
+  "description": "Full-featured Enterprise Resource Planning (ERP) platform integrated with Supabase, featuring Inventory, Sales Orders, Invoicing, Procurement, CRM, and Supabase Edge Functions & SQL Schema managers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

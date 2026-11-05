@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Omada palette — Teal #00605A primary, Mint #4DDEBD accent */
+    --background: 210 14% 97%;
+    --foreground: 213 11% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 11% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 11% 27%;
+
+    --primary: 175 100% 19%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 175 60% 30%;
+
+    --secondary: 210 14% 93%;
+    --secondary-foreground: 213 11% 27%;
+
+    --muted: 210 14% 93%;
+    --muted-foreground: 215 10% 47%;
+
+    --accent: 165 67% 59%;
+    --accent-foreground: 175 100% 15%;
+    --accent-soft: 165 60% 95%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 165 67% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 215 16% 88%;
+    --input: 215 16% 88%;
+    --ring: 175 100% 19%;
+
+    --radius: 0.5rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.25);
+
+    --sidebar-background: 175 100% 13%;
+    --sidebar-foreground: 165 30% 88%;
+    --sidebar-primary: 165 67% 59%;
+    --sidebar-primary-foreground: 175 100% 15%;
+    --sidebar-accent: 175 60% 18%;
+    --sidebar-accent-foreground: 165 40% 95%;
+    --sidebar-border: 175 50% 22%;
+    --sidebar-ring: 165 67% 59%;
+
+    /* Shop (customer-facing) tokens */
+    --shop-deep: 222 47% 14%;
+    --shop-deep-foreground: 0 0% 100%;
+    --shop-accent: 220 90% 56%;
+    --shop-accent-foreground: 0 0% 100%;
+    --shop-soft: 220 40% 95%;
+  }
+
+  .dark {
+    --background: 175 30% 8%;
+    --foreground: 165 20% 92%;
+    --card: 175 25% 11%;
+    --card-foreground: 165 20% 92%;
+    --popover: 175 25% 11%;
+    --popover-foreground: 165 20% 92%;
+    --primary: 165 67% 59%;
+    --primary-foreground: 175 100% 12%;
+    --primary-glow: 165 67% 70%;
+    --secondary: 175 20% 16%;
+    --secondary-foreground: 165 20% 92%;
+    --muted: 175 20% 16%;
+    --muted-foreground: 165 12% 60%;
+    --accent: 165 67% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 175 30% 18%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 165 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 80% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 175 20% 20%;
+    --input: 175 20% 20%;
+    --ring: 165 67% 59%;
+    --sidebar-background: 175 35% 6%;
+    --sidebar-foreground: 165 20% 85%;
+    --sidebar-primary: 165 67% 59%;
+    --sidebar-primary-foreground: 175 100% 12%;
+    --sidebar-accent: 175 30% 14%;
+    --sidebar-accent-foreground: 165 30% 92%;
+    --sidebar-border: 175 25% 16%;
+    --sidebar-ring: 165 67% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+#lovable-badge { display: none !important; }
+
+/* ===== Global print hygiene: no scrollbars, no app chrome ===== */
+@media print {
+  html, body {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    background: #fff !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    scrollbar-width: none !important;
+  }
+  *::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+
+  /* Kill scroll containers so nothing is clipped or shows a scrollbar */
+  [class*="overflow-auto"],
+  [class*="overflow-y-auto"],
+  [class*="overflow-x-auto"],
+  [class*="overflow-scroll"],
+  [class*="overflow-hidden"],
+  [data-radix-scroll-area-viewport] {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  /* App chrome never prints */
+  [data-sidebar],
+  [data-sidebar="sidebar"],
+  [data-sidebar="trigger"],
+  [data-sonner-toaster],
+  [role="toolbar"],
+  .app-chrome {
+    display: none !important;
+  }
+
+  /* Dialog/print sheets should flow, not float */
+  [role="dialog"] {
+    position: static !important;
+    transform: none !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  [data-radix-popper-content-wrapper] { display: none !important; }
+}
+
+/* ===== Invoice / document print isolation ===== */
+@media print {
+  body.printing-invoice * {
+    visibility: hidden;
+  }
+  body.printing-invoice #invoice-print-root,
+  body.printing-invoice #invoice-print-root *,
+  body.printing-invoice #printable-invoice,
+  body.printing-invoice #printable-invoice *,
+  body.printing-invoice #printable-credit-note,
+  body.printing-invoice #printable-credit-note *,
+  body.printing-invoice #statement-print,
+  body.printing-invoice #statement-print *,
+  body.printing-invoice #debtors-print,
+  body.printing-invoice #debtors-print * {
+    visibility: visible;
+  }
+  body.printing-invoice #invoice-print-root,
+  body.printing-invoice #printable-invoice,
+  body.printing-invoice #printable-credit-note,
+  body.printing-invoice #debtors-print,
+  body.printing-invoice #statement-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #fff;
+  }
+}
+
